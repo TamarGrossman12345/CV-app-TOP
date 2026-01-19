@@ -7,7 +7,7 @@
 .input-label {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #4586e2;
+  color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 0.025em;
 }
@@ -25,10 +25,9 @@
 .custom-input:focus {
   outline: none;
   border-color: var(--primary);
-  ring: 2px solid rgba(37, 99, 235, 0.1);
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+
 }
 
 .custom-input::placeholder {
-  color: #94a3b8;
+  color: #a8b3c3;
 }

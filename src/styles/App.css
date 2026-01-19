@@ -1,12 +1,14 @@
 
 :root {
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
+  --primary: #2721db;
+  --primary-hover: #345ed1;
+  --second-hover: #7490de;
   --bg-main: #f8fafc;
   --text-main: #1e293b;
   --text-muted: #64748b;
   --border: #e2e8f0;
   --white: #ffffff;
+  --tab-background: #bebcf4;
 }
 
 body {

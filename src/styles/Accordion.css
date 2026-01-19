@@ -8,8 +8,7 @@
 }
 
 .accordion-item:hover {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  border-color: #cbd5e1;
+  border-color: var(--primary-hover);
 }
 
 .accordion-header {
@@ -23,21 +22,26 @@
 
 .accordion-title {
   font-weight: 600;
-  font-size: 1.1rem;
-  color: #1e293b;
+  font-size: 1.2rem;
+  color: var(--text-main);
 }
 
 .accordion-toggle {
   background: #f1f5f9;
   border: none;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-muted);
+  color: var(--primary);
   transition: transform 0.2s ease;
+  margin-left: 15px;
+}
+
+.accordion-toggle:hover {
+    color: var(--second-hover);
 }
 
 .accordion-content {
@@ -48,7 +52,3 @@
   animation: slideDown 0.3s ease-out;
 }
 
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
