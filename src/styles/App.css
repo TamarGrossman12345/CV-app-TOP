@@ -6,20 +6,38 @@
   --bg-main: #f8fafc;
   --text-main: #1e293b;
   --text-muted: #64748b;
-  --border: #e2e8f0;
+  --border: #e7e2f0;
   --white: #ffffff;
   --tab-background: #bebcf4;
 }
 
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg-main);
+  
+  font-family:   system-ui, Arial, Helvetica, sans-serif;
+  background-color: var(--border);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
+
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+
 }
 
 .app-wrapper {
   min-height: 100vh;
-  padding: 30px;
+
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  gap: 40px;      
+  max-width: 1300px; 
+  margin: 0 auto;
+  padding: 40px 20px;
+  
+  align-items: flex-start;
 }
+
+

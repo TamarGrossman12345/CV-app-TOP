@@ -12,7 +12,7 @@
 }
 
 .accordion-header {
-  padding: 20px 24px;
+  padding: 10px 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,8 +22,9 @@
 
 .accordion-title {
   font-weight: 600;
-  font-size: 1.2rem;
+font-size: 1.2rem;   /* גודל הטקסט */
   color: var(--text-main);
+  margin: 0;
 }
 
 .accordion-toggle {
@@ -52,3 +53,16 @@
   animation: slideDown 0.3s ease-out;
 }
 
+.accordion-icon {
+color: #64748b;
+  stroke-width: 2px;
+  /* הסוד: גודל האייקון לפי יחידות rem כדי שיתאים לטקסט */
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.accordion-title-group {
+  display: flex;
+  align-items: center; /* מרכז אותם אנכית */
+  gap: 12px;           /* רווח צמוד בין האייקון לטקסט */
+}

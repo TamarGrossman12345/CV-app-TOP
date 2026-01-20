@@ -1,0 +1,21 @@
+
+.dates-row {
+  display: flex;         
+  gap: 16px;              
+  width: 100%;            
+ box-sizing: border-box;  
+}
+
+
+.single-date-group {
+  display: flex;
+  flex-direction: column; 
+  flex: 1;                
+  min-width: 0;         
+}
+
+
+.single-date-group .custom-input {
+  width: 100%;          
+  box-sizing: border-box; 
+}

@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  color: #0e5fd7;
 }
 
 .input-label {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--text-main);
   text-transform: uppercase;
   letter-spacing: 0.025em;
 }
@@ -18,7 +19,7 @@
   border-radius: 8px;
   font-size: 1rem;
   color: var(--text-main);
-  background-color: #ffffff;
+  background-color: var(--border);
   transition: all 0.2s ease;
 }
 
@@ -29,5 +30,5 @@
 }
 
 .custom-input::placeholder {
-  color: #a8b3c3;
+  color: #9fa1a4;
 }
