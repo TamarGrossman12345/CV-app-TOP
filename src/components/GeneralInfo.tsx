@@ -9,7 +9,7 @@ import {
   Phone,
 } from "lucide-react";
 
-interface GeneralInfoData {
+export interface GeneralInfoData {
   name: string;
   position: string;
   careerObjective: string;

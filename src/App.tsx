@@ -40,7 +40,6 @@ function App() {
       </div>
       <div className="cv-preview-container">
         <CvPreview data={cvData}  />
-        {/* data={cvData} */}
       </div>
     </div>
   );
