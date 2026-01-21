@@ -1,11 +1,11 @@
 import "../styles/CvPreview.css"; 
 
-function CvPreview() { 
+function CvPreview({data} ) { 
 
 
     return (
     <div className="CV-wrapper">
-
+        
 
 
     </div>

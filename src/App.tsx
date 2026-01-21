@@ -1,22 +1,49 @@
 //import { useState } from 'react'
-import './styles/App.css'
-import GeneralInfo from './components/GeneralInfo'
-import CvPreview from './components/CvPreview'
+import "./styles/App.css";
+import GeneralInfo from "./components/GeneralInfo";
+import CvPreview from "./components/CvPreview";
+import { useState } from "react";
 
 function App() {
+  const [cvData, setCvData] = useState({
+    // Profile
+    name: "",
+    position: "",
+    careerObjective: "",
+    // Education
+    degree: "",
+    school: "",
+    eduLocation: "",
+    eduStartDate: "",
+    eduEndDate: "",
+    // Experience
+    jobTitle: "",
+    company: "",
+    expDescription: "",
+    expStartDate: "",
+    expEndDate: "",
+    // Contact
+    phone: "",
+    email: "",
+    contactLocation: "",
+    linkedin: "",
+  });
+
+  const handleChange = (field: string, value: string) => {
+    setCvData((prev) => ({ ...prev, [field]: value }));
+  };
+
   return (
     <div className="app-wrapper">
-      {/* צד שמאל: הטפסים */}
       <div className="general-info-container">
-        <GeneralInfo />
+        <GeneralInfo data={cvData} onUpdate={handleChange} />
       </div>
-
-      {/* צד ימין: התצוגה המקדימה */}
       <div className="cv-preview-container">
-        <CvPreview />
+        <CvPreview data={cvData}  />
+        {/* data={cvData} */}
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

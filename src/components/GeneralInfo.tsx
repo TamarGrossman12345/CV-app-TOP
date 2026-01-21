@@ -2,48 +2,163 @@ import Accordion from "./Accordion";
 import "../styles/GeneralInfo.css";
 import InputCustom from "./InputCustom";
 import InputDates from "./InputDates";
-import { UserRound , GraduationCap, BriefcaseBusiness, Phone} from "lucide-react";
+import {
+  UserRound,
+  GraduationCap,
+  BriefcaseBusiness,
+  Phone,
+} from "lucide-react";
 
-function GeneralInfo() {
+interface GeneralInfoData {
+  name: string;
+  position: string;
+  careerObjective: string;
+  // Education
+  degree: string;
+  school: string;
+  eduLocation: string;
+  eduStartDate: string;
+  eduEndDate: string;
+  // Experience
+  jobTitle: string;
+  company: string;
+  expDescription: string;
+  expStartDate: string;
+  expEndDate: string;
+  // Contact
+  phone: string;
+  email: string;
+  contactLocation: string;
+  linkedin: string;
+}
+
+interface GeneralInfoProps {
+  data: GeneralInfoData;
+  onUpdate: (field: string, value: string) => void;
+}
+
+function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
   return (
     <div className="general-info-container ">
       <h1 className="main-title">CV GENERATOR</h1>
       <div className="cv-sections">
         <Accordion title="Profile" icon={UserRound}>
-          <InputCustom title="Full Name" placeholder="Enter Full Name" />
           <InputCustom
-            title="Position / Title"
-            placeholder="Enter Your Position"
+            title="Full Name"
+            placeholder="Enter Full Name"
+            name="name"
+            value={data.name}
+            onChangeFunc={onUpdate}
           />
           <InputCustom
+            value={data.position}
+            onChangeFunc={onUpdate}
+            title="Position / Title"
+            placeholder="Enter Your Position"
+            name="position"
+          />
+          <InputCustom
+            value={data.careerObjective}
+            onChangeFunc={onUpdate}
             placeholder="Enter a short career objective"
             title="Career Objective"
             type="textarea"
+            name="careerObjective"
           />
         </Accordion>
 
         <Accordion title="Education" icon={GraduationCap}>
-          <InputCustom title="Degree" placeholder="Enter Degree" />
           <InputCustom
+            onChangeFunc={onUpdate}
+            name="degree"
+            value={data.degree}
+            title="Degree"
+            placeholder="Enter Degree"
+          />
+          <InputCustom
+            onChangeFunc={onUpdate}
+            name="school"
+            value={data.school}
             title="School / College"
             placeholder="Enter School or College"
           />
-          <InputCustom title="Location" placeholder="Enter Location" />
-          <InputDates />
+          <InputCustom
+            onChangeFunc={onUpdate}
+            name="eduLocation"
+            value={data.eduLocation}
+            title="Location"
+            placeholder="Enter Location"
+          />
+          <InputDates
+            onChangeFunc={onUpdate}
+            startName="eduStartDate"
+            startValue={data.eduStartDate}
+            endName="eduEndDate"
+            endValue={data.eduEndDate}
+          />
         </Accordion>
 
         <Accordion title="Experience" icon={BriefcaseBusiness}>
-          <InputCustom title="Job Title" placeholder="Enter Job Title" />
-          <InputCustom title="Company" placeholder="Enter Company" />
-          <InputDates />
-          <InputCustom type="textarea" title="Description" placeholder="Enter Job Description" />
+          <InputCustom
+            onChangeFunc={onUpdate}
+            name="jobTitle"
+            value={data.jobTitle}
+            title="Job Title"
+            placeholder="Enter Job Title"
+          />
+          <InputCustom
+            onChangeFunc={onUpdate}
+            name="company"
+            value={data.company}
+            title="Company"
+            placeholder="Enter Company"
+          />
+          <InputDates
+            onChangeFunc={onUpdate}
+            startName="expStartDate"
+            startValue={data.expStartDate}
+            endName="expEndDate"
+            endValue={data.expEndDate}
+          />
+          <InputCustom
+            onChangeFunc={onUpdate}
+            name="expDescription"
+            value={data.expDescription}
+            type="textarea"
+            title="Description"
+            placeholder="Enter Job Description"
+          />
         </Accordion>
 
         <Accordion title="Contact" icon={Phone}>
-          <InputCustom title="Phone Number" placeholder="Enter Your Phone Number" />
-          <InputCustom title="Email" placeholder="Enter Your Email" />
-          <InputCustom title="Location" placeholder="Enter Your Email" />
-          <InputCustom title="Linkedin URL" placeholder="Enter Your Linkedin Profile URL" />
+          <InputCustom
+            onChangeFunc={onUpdate}
+            name="phone"
+            value={data.phone}
+            title="Phone Number"
+            placeholder="Enter Your Phone Number"
+          />
+          <InputCustom
+            onChangeFunc={onUpdate}
+            name="email"
+            value={data.email}
+            title="Email"
+            placeholder="Enter Your Email"
+          />
+          <InputCustom
+            onChangeFunc={onUpdate}
+            name="contactLocation"
+            value={data.contactLocation}
+            title="Location"
+            placeholder="Enter Your Email"
+          />
+          <InputCustom
+            onChangeFunc={onUpdate}
+            name="linkedin"
+            value={data.linkedin}
+            title="Linkedin URL"
+            placeholder="Enter Your Linkedin Profile URL"
+          />
         </Accordion>
       </div>
     </div>
