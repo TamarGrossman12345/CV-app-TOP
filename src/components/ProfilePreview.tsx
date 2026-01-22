@@ -16,13 +16,12 @@ function ProfilePreview({ data }: ProfilePreviewProps) {
   }
 
   return (
-    <div className="profile-container">
-      <h1 className="container-profile-title">Profile</h1>
-
+    <> 
       <h2>Name: {data.name}</h2>
-      <h3>Position: {data.position}</h3>
-      <h3>Career Objective: {data.careerObjective}</h3>
-    </div>
+      <h4>Position: {data.position}</h4>
+      <h4>Career Objective: {data.careerObjective}</h4>
+      <div className="line-sep "></div>
+    </>
   );
 }
 

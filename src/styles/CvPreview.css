@@ -25,8 +25,16 @@
 
 }
 
+.line-sep {
+    min-width: 20px;
+    background-color: var(--pink);
+    width: 100%;
+    min-height: 10px;
+    margin-bottom: 15px;
+}
+
 .profile-container h2,
-.profile-container h3 ,
+.profile-container h4 ,
 .profile-container h5{
 
   margin: 25px;

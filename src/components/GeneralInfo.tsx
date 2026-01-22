@@ -8,34 +8,8 @@ import {
   BriefcaseBusiness,
   Phone,
 } from "lucide-react";
+import type { GeneralInfoProps } from "../types";
 
-export interface GeneralInfoData {
-  name: string;
-  position: string;
-  careerObjective: string;
-  // Education
-  degree: string;
-  school: string;
-  eduLocation: string;
-  eduStartDate: string;
-  eduEndDate: string;
-  // Experience
-  jobTitle: string;
-  company: string;
-  expDescription: string;
-  expStartDate: string;
-  expEndDate: string;
-  // Contact
-  phone: string;
-  email: string;
-  contactLocation: string;
-  linkedin: string;
-}
-
-interface GeneralInfoProps {
-  data: GeneralInfoData;
-  onUpdate: (field: string, value: string) => void;
-}
 
 function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
   return (
