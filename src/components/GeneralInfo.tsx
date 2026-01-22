@@ -1,7 +1,7 @@
-import Accordion from "./Accordion";
+import Accordion from "./common/Accordion";
 import "../styles/GeneralInfo.css";
-import InputCustom from "./InputCustom";
-import InputDates from "./InputDates";
+import InputCustom from "./common/InputCustom";
+import InputDates from "./common/InputDates";
 import {
   UserRound,
   GraduationCap,
