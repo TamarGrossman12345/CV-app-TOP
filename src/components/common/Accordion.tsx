@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { type LucideIcon } from "lucide-react";
-import "../styles/Accordion.css";
+import "../../styles/Accordion.css";
 
 type AccordionProps = {
   title: string;

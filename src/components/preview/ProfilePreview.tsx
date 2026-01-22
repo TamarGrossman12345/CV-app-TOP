@@ -1,4 +1,5 @@
-import "../styles/CvPreview.css";
+import "../../styles/CvPreview.css";
+
 
 interface ProfileData {
   name: string;

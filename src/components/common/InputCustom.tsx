@@ -1,4 +1,4 @@
-import "../styles/InputCustom.css";
+import "../../styles/InputCustom.css"
 
 interface InputCustomProps {
   title: string;

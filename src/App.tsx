@@ -1,7 +1,7 @@
 //import { useState } from 'react'
 import "./styles/App.css";
 import GeneralInfo from "./components/GeneralInfo";
-import CvPreview from "./components/CvPreview";
+import CvPreview from "./components/preview/CvPreview";
 import { useState } from "react";
 
 function App() {

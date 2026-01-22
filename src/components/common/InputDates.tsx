@@ -1,4 +1,4 @@
-import "../styles/InputDates.css";
+import "../../styles/InputDates.css";
 
 interface InputDatesProps {
   onChangeFunc: (name: string, value: string) => void;

@@ -1,7 +1,7 @@
-import "../styles/CvPreview.css"; 
-import type { GeneralInfoProps } from "../types";
-import ContactPreview from "./preview/ContactPreview";
-import EducationPreview from "./preview/EducationPreview";
+import "../../styles/CvPreview.css";
+import type { GeneralInfoProps } from "../../types"
+import ContactPreview from "./ContactPreview";
+import EducationPreview from "./EducationPreview";
 import ExperiencePreview from "./ExperiencePreview";
 import ProfilePreview from "./ProfilePreview";
 

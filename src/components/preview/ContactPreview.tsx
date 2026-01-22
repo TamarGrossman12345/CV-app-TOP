@@ -1,4 +1,4 @@
-import "../styles/CvPreview.css";
+import "../../styles/CvPreview.css";
 
 interface ContactData {
   phone: string;
