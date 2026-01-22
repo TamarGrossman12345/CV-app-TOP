@@ -4,12 +4,13 @@ interface InputCustomProps {
   title: string;
   placeholder: string;
   type?: string;
+  fieldType?: string;
   value: string;
   name: string;
   onChangeFunc: (name: string, value: string) => void;
 }
 
-function InputCustom({ title, placeholder, type , onChangeFunc, value, name }: InputCustomProps) {
+function InputCustom({ title, placeholder, type , onChangeFunc, value, name, fieldType }: InputCustomProps) {
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -37,7 +38,7 @@ function InputCustom({ title, placeholder, type , onChangeFunc, value, name }: I
       <input 
         name={name}
         className="custom-input" 
-        type="text"
+        type={fieldType}
         placeholder={placeholder} 
         value={value}
         onChange={handleChange}

@@ -106,6 +106,7 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
 
         <Accordion title="Contact" icon={Phone}>
           <InputCustom
+            fieldType="number"
             onChangeFunc={onUpdate}
             name="phone"
             value={data.phone}
@@ -114,6 +115,7 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
           />
           <InputCustom
             onChangeFunc={onUpdate}
+            fieldType="email"
             name="email"
             value={data.email}
             title="Email"
@@ -127,6 +129,7 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
             placeholder="Enter Your Email"
           />
           <InputCustom
+            fieldType="url"
             onChangeFunc={onUpdate}
             name="linkedin"
             value={data.linkedin}

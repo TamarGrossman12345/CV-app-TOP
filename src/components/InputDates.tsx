@@ -28,7 +28,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           value={startValue}
           onChange={handleChange}
           className="custom-input"
-          type="text"
+          type="date"
           placeholder="MM/YY"
         />
       </div>
@@ -40,7 +40,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
           value={endValue}
           onChange={handleChange}
           className="custom-input"
-          type="text"
+          type="date"
           placeholder="MM/YY"
         />
       </div>
