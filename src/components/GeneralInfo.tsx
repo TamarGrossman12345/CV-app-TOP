@@ -9,12 +9,13 @@ import {
   Phone,
 } from "lucide-react";
 import type { GeneralInfoProps } from "../types";
-
+import { Button, Box } from "@mui/material";
 
 function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
   return (
-    <div className="general-info-container ">
+    <div className="general-info-container">
       <h1 className="main-title">CV GENERATOR</h1>
+      <form>
       <div className="cv-sections">
         <Accordion title="Profile" icon={UserRound}>
           <InputCustom
@@ -106,7 +107,7 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
 
         <Accordion title="Contact" icon={Phone}>
           <InputCustom
-            fieldType="number"
+            fieldType="tel"
             onChangeFunc={onUpdate}
             name="phone"
             value={data.phone}
@@ -126,7 +127,7 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
             name="contactLocation"
             value={data.contactLocation}
             title="Location"
-            placeholder="Enter Your Email"
+            placeholder="Enter Your Location"
           />
           <InputCustom
             fieldType="url"
@@ -138,6 +139,35 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
           />
         </Accordion>
       </div>
+      <div className="button-container">
+        <Box display="flex" justifyContent="center" gap={4}>
+          <Button
+            variant="contained"
+            type="submit"
+            sx={{
+              backgroundColor: "#2721db",
+              "&:hover": {
+                backgroundColor: "#7490de",
+              },
+            }}
+          >
+            SAVE
+          </Button>
+          <Button
+            variant="contained"
+            type="button"
+            sx={{
+              backgroundColor: "#2721db",
+              "&:hover": {
+                backgroundColor: "#7490de",
+              },
+            }}
+          >
+            EDIT
+          </Button>
+        </Box>
+      </div>
+      </form>
     </div>
   );
 }

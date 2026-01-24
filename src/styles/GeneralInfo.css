@@ -26,3 +26,20 @@
   gap: 30px; 
   width: 400px;
 }
+
+
+
+.button-container {
+  display: flex;
+  justify-content: center; 
+  margin-top: 20px;        
+}
+
+.button-group {
+  background-color: rgb(203, 140, 25);
+  color: rgb(206, 47, 47);
+}
+
+.button-group:hover {
+  background-color: darkorange;
+}
