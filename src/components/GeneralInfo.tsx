@@ -12,10 +12,25 @@ import type { GeneralInfoProps } from "../types";
 import { Button, Box } from "@mui/material";
 
 function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!allFieldsFilled()) {
+      alert("Please fill in all fields!");
+      return;
+    }
+
+    console.log("Form is complete!", data);
+  };
+
+  const allFieldsFilled = () => {
+    return Object.values(data).every((value) => value.toString().trim() !== "");
+  };
+
   return (
     <div className="general-info-container">
       <h1 className="main-title">CV GENERATOR</h1>
-      <form>
+
       <div className="cv-sections">
         <Accordion title="Profile" icon={UserRound}>
           <InputCustom
@@ -142,6 +157,7 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
       <div className="button-container">
         <Box display="flex" justifyContent="center" gap={4}>
           <Button
+            onClick={handleSubmit}
             variant="contained"
             type="submit"
             sx={{
@@ -167,7 +183,6 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
           </Button>
         </Box>
       </div>
-      </form>
     </div>
   );
 }
