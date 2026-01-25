@@ -30,7 +30,6 @@ function App() {
     linkedin: "",
   });
 
-
   const allFieldsFilled = () => {
     return Object.values(cvData).every(
       (value) => value.toString().trim() !== "",
@@ -42,24 +41,22 @@ function App() {
   };
 
   const handleEdit = () => {
-    setIsLocked(false); 
+    setIsLocked(false);
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) =>  {
     e.preventDefault();
 
     if (!allFieldsFilled()) {
       alert("Please fill in all fields!");
-     
-      return;
+
+      return false;
     } else {
-    
-   setIsLocked(true)
-    console.log("Form is complete!", cvData);
+      setIsLocked(true);
+      console.log("Form is complete!", cvData);
+      return true
     }
   };
-
-
 
   return (
     <div className="app-wrapper">
@@ -72,12 +69,13 @@ function App() {
           onEdit={handleEdit}
         />
       </div>
-      <div className="cv-preview-container">
-        <CvPreview data={cvData} />
-      </div>
+      {isLocked && (
+        <div className="cv-preview-container">
+          <CvPreview data={cvData} />
+        </div>
+      )}
     </div>
   );
 }
-
 
 export default App;
