@@ -40,6 +40,7 @@ function GeneralInfo({
           icon={UserRound}
         >
           <InputCustom
+           isLocked={isLocked}
             title="Full Name"
             placeholder="Enter Full Name"
             name="name"
@@ -47,6 +48,7 @@ function GeneralInfo({
             onChangeFunc={onUpdate}
           />
           <InputCustom
+          isLocked={isLocked} 
             value={data.position}
             onChangeFunc={onUpdate}
             title="Position / Title"
@@ -54,6 +56,7 @@ function GeneralInfo({
             name="position"
           />
           <InputCustom
+          isLocked={isLocked}
             value={data.careerObjective}
             onChangeFunc={onUpdate}
             placeholder="Enter a short career objective"
@@ -64,6 +67,7 @@ function GeneralInfo({
         </Accordion>
 
         <Accordion
+        
           isLocked={isLocked}
           displayContent={displayContent}
           onClick={handleOpening}
@@ -71,6 +75,7 @@ function GeneralInfo({
           icon={GraduationCap}
         >
           <InputCustom
+          isLocked={isLocked}
             onChangeFunc={onUpdate}
             name="degree"
             value={data.degree}
@@ -78,6 +83,7 @@ function GeneralInfo({
             placeholder="Enter Degree"
           />
           <InputCustom
+          isLocked={isLocked}
             onChangeFunc={onUpdate}
             name="school"
             value={data.school}
@@ -85,6 +91,7 @@ function GeneralInfo({
             placeholder="Enter School or College"
           />
           <InputCustom
+          isLocked={isLocked}
             onChangeFunc={onUpdate}
             name="eduLocation"
             value={data.eduLocation}
@@ -92,6 +99,7 @@ function GeneralInfo({
             placeholder="Enter Location"
           />
           <InputDates
+          isLocked={isLocked}
             onChangeFunc={onUpdate}
             startName="eduStartDate"
             startValue={data.eduStartDate}
@@ -108,6 +116,7 @@ function GeneralInfo({
           icon={BriefcaseBusiness}
         >
           <InputCustom
+          isLocked={isLocked}
             onChangeFunc={onUpdate}
             name="jobTitle"
             value={data.jobTitle}
@@ -115,6 +124,7 @@ function GeneralInfo({
             placeholder="Enter Job Title"
           />
           <InputCustom
+          isLocked={isLocked}
             onChangeFunc={onUpdate}
             name="company"
             value={data.company}
@@ -122,6 +132,7 @@ function GeneralInfo({
             placeholder="Enter Company"
           />
           <InputDates
+          isLocked={isLocked}
             onChangeFunc={onUpdate}
             startName="expStartDate"
             startValue={data.expStartDate}
@@ -129,6 +140,7 @@ function GeneralInfo({
             endValue={data.expEndDate}
           />
           <InputCustom
+          isLocked={isLocked}
             onChangeFunc={onUpdate}
             name="expDescription"
             value={data.expDescription}
@@ -146,6 +158,7 @@ function GeneralInfo({
           icon={Phone}
         >
           <InputCustom
+          
             isLocked={isLocked}
             fieldType="tel"
             onChangeFunc={onUpdate}

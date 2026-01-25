@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { type LucideIcon } from "lucide-react";
 import "../../styles/Accordion.css";
 
@@ -11,18 +11,26 @@ type AccordionProps = {
   isLocked?: boolean;
 };
 
-function Accordion({ title, children, icon: Icon, onClick, isLocked, displayContent }: AccordionProps) {
+function Accordion({ title, children, icon: Icon, isLocked }: AccordionProps) {
+    const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+  
+  
+    const handleOpening = () => {
+      setIsAccordionOpen(!isAccordionOpen);
+    };
+  
+
   return (
     <div className="accordion-item">
-      <div className="accordion-header" onClick={onClick}>
+      <div className="accordion-header" onClick={handleOpening}>
         <div className="accordion-title-group">
           {Icon && <Icon className="accordion-icon" />}
           <p className={`accordion-title ${isLocked ? "header-disabled" : ""}`}>{title}</p>
         </div>
 
-        <button className={`accordion-toggle ${isLocked ? "header-disabled" : ""}`}>{displayContent ? "▲" : "▼"}</button>
+        <button className="accordion-toggle">{isAccordionOpen ? "▲" : "▼"}</button>
       </div>
-      {displayContent && <div className="accordion-content">{children} </div>}
+      {isAccordionOpen && <div className="accordion-content">{children} </div>}
     </div>
   );
 }
