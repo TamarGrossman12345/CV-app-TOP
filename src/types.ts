@@ -1,4 +1,6 @@
- export type GeneralInfoData = {
+import type { FormEvent } from "react";
+
+export type GeneralInfoData = {
   name: string;
   position: string;
   careerObjective: string;
@@ -23,5 +25,16 @@
 
 export type GeneralInfoProps = {
   data: GeneralInfoData;
-  onUpdate: (field: string, value: string) => void ;
+  onUpdate: (field: string, value: string) => void;
+  onSubmit?: (e: FormEvent) => void;
+  isLocked?: boolean;
+  onEdit?: (e: FormEvent) => void;
 }
+
+export type CvData = {
+  data: GeneralInfoData;
+  onUpdate?: (field: string, value: string) => void;
+  onSubmit?: (e: FormEvent) => void;
+  isLocked?: boolean;
+}
+

@@ -6,6 +6,7 @@ interface InputDatesProps {
   startValue: string;
   endName: string;
   endValue: string;
+  isLocked?: boolean;
 }
 
 function InputDates({
@@ -14,16 +15,18 @@ function InputDates({
   startValue,
   endName,
   endValue,
+  isLocked,
 }: InputDatesProps) {
-const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChangeFunc(e.target.name, e.target.value);
   };
-  
+
   return (
     <div className="dates-row">
       <div className="single-date-group">
         <label className="input-label">Start Date</label>
         <input
+          disabled={isLocked}
           name={startName}
           value={startValue}
           onChange={handleChange}
@@ -36,6 +39,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       <div className="single-date-group">
         <label className="input-label">End Date</label>
         <input
+          disabled={isLocked}
           name={endName}
           value={endValue}
           onChange={handleChange}

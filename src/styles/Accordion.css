@@ -20,6 +20,11 @@
   background: none;
 }
 
+.header-disabled {
+  color: var(--text-muted);
+  opacity: 0.4;
+}
+
 .accordion-title {
   font-weight: 600;
 font-size: 1.2rem;   /* גודל הטקסט */

@@ -10,21 +10,21 @@ import {
 } from "lucide-react";
 import type { GeneralInfoProps } from "../types";
 import { Button, Box } from "@mui/material";
+import { useState } from "react";
 
-function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
-  const handleSubmit = (e) => {
-    e.preventDefault();
+function GeneralInfo({
+  data,
+  onUpdate,
+  onSubmit,
+  isLocked,
+  onEdit,
+}: GeneralInfoProps) {
+  const [isOpen, setIsOpen] = useState(false);
 
-    if (!allFieldsFilled()) {
-      alert("Please fill in all fields!");
-      return;
-    }
+  const displayContent = isOpen && !isLocked;
 
-    console.log("Form is complete!", data);
-  };
-
-  const allFieldsFilled = () => {
-    return Object.values(data).every((value) => value.toString().trim() !== "");
+  const handleOpening = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -32,7 +32,13 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
       <h1 className="main-title">CV GENERATOR</h1>
 
       <div className="cv-sections">
-        <Accordion title="Profile" icon={UserRound}>
+        <Accordion
+          isLocked={isLocked}
+          displayContent={displayContent}
+          onClick={handleOpening}
+          title="Profile"
+          icon={UserRound}
+        >
           <InputCustom
             title="Full Name"
             placeholder="Enter Full Name"
@@ -57,7 +63,13 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
           />
         </Accordion>
 
-        <Accordion title="Education" icon={GraduationCap}>
+        <Accordion
+          isLocked={isLocked}
+          displayContent={displayContent}
+          onClick={handleOpening}
+          title="Education"
+          icon={GraduationCap}
+        >
           <InputCustom
             onChangeFunc={onUpdate}
             name="degree"
@@ -88,7 +100,13 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
           />
         </Accordion>
 
-        <Accordion title="Experience" icon={BriefcaseBusiness}>
+        <Accordion
+          isLocked={isLocked}
+          displayContent={displayContent}
+          onClick={handleOpening}
+          title="Experience"
+          icon={BriefcaseBusiness}
+        >
           <InputCustom
             onChangeFunc={onUpdate}
             name="jobTitle"
@@ -120,8 +138,15 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
           />
         </Accordion>
 
-        <Accordion title="Contact" icon={Phone}>
+        <Accordion
+          isLocked={isLocked}
+          displayContent={displayContent}
+          onClick={handleOpening}
+          title="Contact"
+          icon={Phone}
+        >
           <InputCustom
+            isLocked={isLocked}
             fieldType="tel"
             onChangeFunc={onUpdate}
             name="phone"
@@ -130,6 +155,7 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
             placeholder="Enter Your Phone Number"
           />
           <InputCustom
+            isLocked={isLocked}
             onChangeFunc={onUpdate}
             fieldType="email"
             name="email"
@@ -138,6 +164,7 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
             placeholder="Enter Your Email"
           />
           <InputCustom
+            isLocked={isLocked}
             onChangeFunc={onUpdate}
             name="contactLocation"
             value={data.contactLocation}
@@ -145,6 +172,7 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
             placeholder="Enter Your Location"
           />
           <InputCustom
+            isLocked={isLocked}
             fieldType="url"
             onChangeFunc={onUpdate}
             name="linkedin"
@@ -157,7 +185,7 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
       <div className="button-container">
         <Box display="flex" justifyContent="center" gap={4}>
           <Button
-            onClick={handleSubmit}
+            onClick={onSubmit}
             variant="contained"
             type="submit"
             sx={{
@@ -170,6 +198,7 @@ function GeneralInfo({ data, onUpdate }: GeneralInfoProps) {
             SAVE
           </Button>
           <Button
+            onClick={onEdit}
             variant="contained"
             type="button"
             sx={{

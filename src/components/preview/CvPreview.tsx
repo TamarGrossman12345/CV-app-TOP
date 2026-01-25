@@ -1,12 +1,12 @@
 import "../../styles/CvPreview.css";
-import type { GeneralInfoProps } from "../../types"
+import type { CvData } from "../../types"
 import ContactPreview from "./ContactPreview";
 import EducationPreview from "./EducationPreview";
 import ExperiencePreview from "./ExperiencePreview";
 import ProfilePreview from "./ProfilePreview";
 
 
-function CvPreview({data} : GeneralInfoProps) { 
+function CvPreview({data} : CvData) { 
 
 
     return (

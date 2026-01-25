@@ -23,6 +23,10 @@
   transition: all 0.2s ease;
 }
 
+.custom-input:disabled {
+
+  color: var(--text-muted);
+}
 .custom-input:focus {
   outline: none;
   border-color: var(--primary);

@@ -1,4 +1,4 @@
-import "../../styles/InputCustom.css"
+import "../../styles/InputCustom.css";
 
 interface InputCustomProps {
   title: string;
@@ -7,39 +7,50 @@ interface InputCustomProps {
   fieldType?: string;
   value: string;
   name: string;
-  onChangeFunc: (name: string, value: string) => void;
+  onChangeFunc: (field: string, value: string) => void;
+  isLocked?: boolean;
 }
 
-function InputCustom({ title, placeholder, type , onChangeFunc, value, name, fieldType }: InputCustomProps) {
-
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+function InputCustom({
+  title,
+  placeholder,
+  type,
+  onChangeFunc,
+  value,
+  name,
+  fieldType,
+  isLocked,
+}: InputCustomProps) {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     onChangeFunc(name, e.target.value);
   };
 
-
   if (type === "textarea") {
-    return ( 
+    return (
       <div className="input-group">
         <label className="input-label">{title}</label>
         <textarea
+          disabled={isLocked}
           name={name}
-          className="custom-input" 
+          className="custom-input"
           placeholder={placeholder}
           value={value}
           onChange={handleChange}
-          ></textarea>
+        ></textarea>
       </div>
-    )
+    );
   }
   return (
     <div className="input-group">
       <label className="input-label">{title}</label>
-      <input 
+      <input
+        disabled={isLocked}
         name={name}
-        className="custom-input" 
+        className="custom-input"
         type={fieldType}
-        placeholder={placeholder} 
+        placeholder={placeholder}
         value={value}
         onChange={handleChange}
       />
