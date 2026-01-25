@@ -46,6 +46,7 @@ function GeneralInfo({
             name="name"
             value={data.name}
             onChangeFunc={onUpdate}
+
           />
           <InputCustom
             isLocked={isLocked}
