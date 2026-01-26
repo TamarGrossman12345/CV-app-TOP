@@ -1,3 +1,4 @@
+import type { LucideIcon } from "lucide-react";
 import type { FormEvent } from "react";
 
 export type GeneralInfoData = {
@@ -38,3 +39,23 @@ export type CvData = {
   isLocked?: boolean;
 }
 
+export type InputField= {
+  name: string;
+  title: string;
+  placeholder: string;
+  type?: "text" | "textarea"; // אופציונלי, ברירת מחדל תהיה text
+  fieldType?: "email" | "tel" | "url" | "text"; // אופציונלי
+}
+
+export type DateField ={
+  startName: string;
+  endName: string;
+}
+
+export type FormSection ={
+  id: string;
+  title: string;
+  icon: LucideIcon;
+  inputCustomFields: InputField[];
+  inputDatesFields?: DateField[];
+}

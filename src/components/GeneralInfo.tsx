@@ -2,15 +2,11 @@ import Accordion from "./common/Accordion";
 import "../styles/GeneralInfo.css";
 import InputCustom from "./common/InputCustom";
 import InputDates from "./common/InputDates";
-import {
-  UserRound,
-  GraduationCap,
-  BriefcaseBusiness,
-  Phone,
-} from "lucide-react";
-import type { GeneralInfoProps } from "../types";
+import type { DateField, GeneralInfoProps, InputField } from "../types";
 import { Button, Box } from "@mui/material";
 import { useState } from "react";
+import { FORM_SECTIONS } from "../constants/generalForm";
+
 
 function GeneralInfo({
   data,
@@ -32,180 +28,57 @@ function GeneralInfo({
       <h1 className="main-title">CV GENERATOR</h1>
 
       <div className="cv-sections">
-        <Accordion
-          isLocked={isLocked}
-          displayContent={displayContent}
-          onClick={handleOpening}
-          title="Profile"
-          icon={UserRound}
-        >
-          <InputCustom
+        {FORM_SECTIONS.map((section) => (
+          <Accordion
+            key={`${section.id}-${isLocked}`} 
+            title={section.title}
+            icon={section.icon}
             isLocked={isLocked}
-            title="Full Name"
-            placeholder="Enter Full Name"
-            name="name"
-            value={data.name}
-            onChangeFunc={onUpdate}
+            displayContent={displayContent}
+            onClick={handleOpening}
+          >
 
-          />
-          <InputCustom
-            isLocked={isLocked}
-            value={data.position}
-            onChangeFunc={onUpdate}
-            title="Position / Title"
-            placeholder="Enter Your Position"
-            name="position"
-          />
-          <InputCustom
-            isLocked={isLocked}
-            value={data.careerObjective}
-            onChangeFunc={onUpdate}
-            placeholder="Enter a short career objective"
-            title="Career Objective"
-            type="textarea"
-            name="careerObjective"
-          />
-        </Accordion>
+            {section.inputCustomFields.map((field: InputField) => (
+              <InputCustom
+                key={field.name}
+                name={field.name}
+                title={field.title}
+                placeholder={field.placeholder}
+                type={field.type || "text"}
+                fieldType={field.fieldType || "text"}
+         
+                value={data[field.name as keyof typeof data] || ""}
+                onChangeFunc={onUpdate}
+                isLocked={isLocked}
+              />
+            ))}
 
-        <Accordion
-          isLocked={isLocked}
-          displayContent={displayContent}
-          onClick={handleOpening}
-          title="Education"
-          icon={GraduationCap}
-        >
-          <InputCustom
-            isLocked={isLocked}
-            onChangeFunc={onUpdate}
-            name="degree"
-            value={data.degree}
-            title="Degree"
-            placeholder="Enter Degree"
-          />
-          <InputCustom
-            isLocked={isLocked}
-            onChangeFunc={onUpdate}
-            name="school"
-            value={data.school}
-            title="School / College"
-            placeholder="Enter School or College"
-          />
-          <InputCustom
-            isLocked={isLocked}
-            onChangeFunc={onUpdate}
-            name="eduLocation"
-            value={data.eduLocation}
-            title="Location"
-            placeholder="Enter Location"
-          />
-          <InputDates
-            isLocked={isLocked}
-            onChangeFunc={onUpdate}
-            startName="eduStartDate"
-            startValue={data.eduStartDate}
-            endName="eduEndDate"
-            endValue={data.eduEndDate}
-          />
-        </Accordion>
-
-        <Accordion
-          isLocked={isLocked}
-          displayContent={displayContent}
-          onClick={handleOpening}
-          title="Experience"
-          icon={BriefcaseBusiness}
-        >
-          <InputCustom
-            isLocked={isLocked}
-            onChangeFunc={onUpdate}
-            name="jobTitle"
-            value={data.jobTitle}
-            title="Job Title"
-            placeholder="Enter Job Title"
-          />
-          <InputCustom
-            isLocked={isLocked}
-            onChangeFunc={onUpdate}
-            name="company"
-            value={data.company}
-            title="Company"
-            placeholder="Enter Company"
-          />
-
-          <InputCustom
-            isLocked={isLocked}
-            onChangeFunc={onUpdate}
-            name="expDescription"
-            value={data.expDescription}
-            type="textarea"
-            title="Description"
-            placeholder="Enter Job Description"
-          />
-          <InputDates
-            isLocked={isLocked}
-            onChangeFunc={onUpdate}
-            startName="expStartDate"
-            startValue={data.expStartDate}
-            endName="expEndDate"
-            endValue={data.expEndDate}
-          />
-        </Accordion>
-
-        <Accordion
-          isLocked={isLocked}
-          displayContent={displayContent}
-          onClick={handleOpening}
-          title="Contact"
-          icon={Phone}
-        >
-          <InputCustom
-            isLocked={isLocked}
-            fieldType="tel"
-            onChangeFunc={onUpdate}
-            name="phone"
-            value={data.phone}
-            title="Phone Number"
-            placeholder="Enter Your Phone Number"
-          />
-          <InputCustom
-            isLocked={isLocked}
-            onChangeFunc={onUpdate}
-            fieldType="email"
-            name="email"
-            value={data.email}
-            title="Email"
-            placeholder="Enter Your Email"
-          />
-          <InputCustom
-            isLocked={isLocked}
-            onChangeFunc={onUpdate}
-            name="contactLocation"
-            value={data.contactLocation}
-            title="Location"
-            placeholder="Enter Your Location"
-          />
-          <InputCustom
-            isLocked={isLocked}
-            fieldType="url"
-            onChangeFunc={onUpdate}
-            name="linkedin"
-            value={data.linkedin}
-            title="Linkedin URL"
-            placeholder="Enter Your Linkedin Profile URL"
-          />
-        </Accordion>
+            {section.inputDatesFields?.map((dateField: DateField) => (
+              <InputDates
+                key={dateField.startName}
+                isLocked={isLocked}
+                onChangeFunc={onUpdate}
+                startName={dateField.startName}
+                startValue={
+                  data[dateField.startName as keyof typeof data] || ""
+                }
+                endName={dateField.endName}
+                endValue={data[dateField.endName as keyof typeof data] || ""}
+              />
+            ))}
+          </Accordion>
+        ))}
       </div>
+
       <div className="button-container">
-        <Box display="flex" justifyContent="center" gap={4}>
+        <Box display="flex" justifyContent="center" gap={4} mt={4}>
           <Button
             onClick={onSubmit}
             variant="contained"
             type="submit"
             sx={{
               backgroundColor: "#2721db",
-              "&:hover": {
-                backgroundColor: "#7490de",
-              },
+              "&:hover": { backgroundColor: "#7490de" },
             }}
           >
             SAVE
@@ -216,16 +89,14 @@ function GeneralInfo({
             type="button"
             sx={{
               backgroundColor: "#2721db",
-              "&:hover": {
-                backgroundColor: "#7490de",
-              },
+              "&:hover": { backgroundColor: "#7490de" },
             }}
           >
             EDIT
           </Button>
         </Box>
       </div>
-    </div>
+    </div> 
   );
 }
 
