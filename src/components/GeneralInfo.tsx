@@ -7,7 +7,6 @@ import { Button, Box } from "@mui/material";
 import { useState } from "react";
 import { FORM_SECTIONS } from "../constants/generalForm";
 
-
 function GeneralInfo({
   data,
   onUpdate,
@@ -30,14 +29,13 @@ function GeneralInfo({
       <div className="cv-sections">
         {FORM_SECTIONS.map((section) => (
           <Accordion
-            key={`${section.id}-${isLocked}`} 
+            key={`${section.id}-${isLocked}`}
             title={section.title}
             icon={section.icon}
             isLocked={isLocked}
             displayContent={displayContent}
             onClick={handleOpening}
           >
-
             {section.inputCustomFields.map((field: InputField) => (
               <InputCustom
                 key={field.name}
@@ -46,7 +44,6 @@ function GeneralInfo({
                 placeholder={field.placeholder}
                 type={field.type || "text"}
                 fieldType={field.fieldType || "text"}
-         
                 value={data[field.name as keyof typeof data] || ""}
                 onChangeFunc={onUpdate}
                 isLocked={isLocked}
@@ -96,7 +93,7 @@ function GeneralInfo({
           </Button>
         </Box>
       </div>
-    </div> 
+    </div>
   );
 }
 
