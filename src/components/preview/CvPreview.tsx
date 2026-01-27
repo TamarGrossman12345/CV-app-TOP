@@ -1,24 +1,22 @@
 import "../../styles/CvPreview.css";
-import type { CvData } from "../../types"
+import type { CvData } from "../../types";
 import ContactPreview from "./ContactPreview";
 import EducationPreview from "./EducationPreview";
 import ExperiencePreview from "./ExperiencePreview";
 import ProfilePreview from "./ProfilePreview";
 
+function CvPreview({ data }: CvData) {
 
-function CvPreview({data} : CvData) { 
 
-
-    return (
+  return (
     <div className="CV-wrapper">
-        <ProfilePreview data={data}></ProfilePreview>
-        <EducationPreview data={data} />
-        <ExperiencePreview data={data} />
-        <ContactPreview data={data} />
-
-
+      <ProfilePreview data={data}></ProfilePreview>
+      <EducationPreview data={data} />
+      <ExperiencePreview data={data} />
+      <ContactPreview data={data} />
+      
     </div>
-    )
+  );
 }
 
-export default CvPreview
+export default CvPreview;
